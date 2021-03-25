@@ -1,0 +1,46 @@
+{
+  "code": 0
+,"msg": ""
+,"count": 3000000
+,"data": [{
+  "id": "10001"
+,"procode": "供应商编码"
+,"proname": "供应商名称"
+,"prodesc": "供应商描述"
+,"procontact": "供应商联系人"
+,"prophone": "供应商电话"
+,"proaddress": "供应商地址"
+,"profax": "供应商传真"
+,"createdby": "创建者"
+,"creationdate": "创建时间"
+,"modifydate": "更新时间"
+,"modifyby": "更新者"
+}, {
+  "id": "10002"
+,"procode": "供应商编码"
+,"proname": "供应商名称"
+,"prodesc": "供应商描述"
+,"procontact": "供应商联系人"
+,"prophone": "供应商电话"
+,"proaddress": "供应商地址"
+,"profax": "供应商传真"
+,"createdby": "创建者"
+,"creationdate": "创建时间"
+,"modifydate": "更新时间"
+,"modifyby": "更新者"
+},{
+  "id": "10003"
+,"procode": "供应商编码"
+,"proname": "供应商名称"
+,"prodesc": "供应商描述"
+,"procontact": "供应商联系人"
+,"prophone": "供应商电话"
+,"proaddress": "供应商地址"
+,"profax": "供应商传真"
+,"createdby": "创建者"
+,"creationdate": "创建时间"
+,"modifydate": "更新时间"
+,"modifyby": "更新者"
+}
+]
+}
