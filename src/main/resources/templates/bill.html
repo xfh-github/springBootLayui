@@ -13,12 +13,16 @@
 
 <script type="text/html" id="toolbarDemo">
     <div class="layui-btn-container">
-        <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
+             <button class="layui-btn layui-btn-sm" lay-event="getCheckData">获取选中行数据</button>
         <button class="layui-btn layui-btn-sm" lay-event="getCheckLength">获取选中数目</button>
         <button class="layui-btn layui-btn-sm" lay-event="isAll">验证是否全选</button>
     </div>
 </script>
+
+
+
 <script type="text/html" id="barDemo">
+    <a class="layui-btn layui-btn-sm" lay-event="add">添加</a>
     <a class="layui-btn layui-btn-xs" lay-event="edit">编辑</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
@@ -56,8 +60,8 @@
                 ,{field:'totalprice',width:80, title:'总价格'}
                 ,{field:'ispayment',width:80, title:'是否支付'}
                 ,{field:'createdby',width:110, title:'创建者'}
-                ,{field:'creationdate',width:180, title:'创建时间'}
-                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:150}
+                ,{field:'creationdate',width:180, title:'创建时间',align:"center"}
+                ,{fixed: 'right', title:'操作', toolbar: '#barDemo', width:180,align:"center"}
             ]
              ]
             ,page: true
@@ -80,20 +84,37 @@
                     break;
             };
         });
-        //监听工具条
-        table.on('tool(test)', function(obj){
-            var data = obj.data;
-            if(obj.event === 'detail'){
-                layer.msg('ID：'+ data.id + ' 的查看操作');
-            } else if(obj.event === 'del'){
-                layer.confirm('真的删除行么', function(index){
-                    obj.del();
-                    layer.close(index);
-                });
-            } else if(obj.event === 'edit'){
-                layer.alert('编辑行：<br>'+ JSON.stringify(data))
-            }
-        });
+
+    //触发事件
+    table.on('toolbar(test)', function(obj) {
+        var checkStatus = table.checkStatus(obj.config.id);
+        switch (obj.event) {
+            case 'add':
+                layer.msg('添加');
+                break;
+            case 'delete':
+                layer.msg('删除');
+                break;
+            case 'update':
+                layer.msg('编辑');
+                break;
+        }
+
+    });
+    //监听工具条
+    table.on('tool(test)', function(obj){
+        var data = obj.data;
+        if(obj.event === 'detail'){
+            layer.msg('ID：'+ data.id + ' 的查看操作');
+        } else if(obj.event === 'del'){
+            layer.confirm('真的删除行么', function(index){
+                obj.del();
+                layer.close(index);
+            });
+        } else if(obj.event === 'edit'){
+            layer.alert('编辑行：<br>'+ JSON.stringify(data))
+        }
+    });
     });
 </script>
 
